@@ -14,36 +14,46 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <h1>New York</h1>
-        <ul>
-          <li>
-            Friday 05:00
-          </li>
-          <li>
-            Clear
-          </li>
-        </ul>
-        <div class="row">
-          <div class="col-6">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-              alt="Partly Cloudy"
-            />
-            12°C | °F
-          </div>
-          <div class="col-6">
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <div class="overview">
+            <h1>Orlando</h1>
             <ul>
               <li>
-                Precipitation: 15%
+                Saturday 12:19
               </li>
               <li>
-                Humidity: 60%
-              </li>
-              <li>
-                Wind: 9 mph
+                Clear
               </li>
             </ul>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="clearfix weather-temperature">
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                  alt="Partly Cloudy"
+                  class="float-left"
+                />
+                <div class="clearfix">
+                  <strong>31</strong
+                  ><span class="units">°C | <a href="#">°F</a></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <ul>
+                <li>
+                  Precipitation: 15%
+                </li>
+                <li>
+                  Humidity: 60%
+                </li>
+                <li>
+                  Wind: 9 mph
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <small>
