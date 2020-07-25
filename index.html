@@ -9,6 +9,7 @@
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
   </head>
@@ -17,12 +18,12 @@
       <div class="weather-app-wrapper">
         <div class="weather-app">
           <div class="overview">
-            <h1>Orlando</h1>
+            <h1 id="city"></h1>
             <ul>
               <li>
                 Saturday 12:19
               </li>
-              <li>
+              <li id="description">
                 Clear
               </li>
             </ul>
@@ -36,22 +37,15 @@
                   class="float-left"
                 />
                 <div class="clearfix">
-                  <strong>31</strong
+                  <strong id="temperature"></strong
                   ><span class="units">°C | <a href="#">°F</a></span>
                 </div>
               </div>
             </div>
             <div class="col-6">
               <ul>
-                <li>
-                  Precipitation: 15%
-                </li>
-                <li>
-                  Humidity: 60%
-                </li>
-                <li>
-                  Wind: 9 mph
-                </li>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind: <span id="wind"></span> mph</li>
               </ul>
             </div>
           </div>
