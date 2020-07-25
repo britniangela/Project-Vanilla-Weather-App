@@ -31,7 +31,9 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  fahrenheitTemperature = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
@@ -46,7 +48,7 @@ function displayTemperature(response) {
 
 function search(city) {
   let apiKey = "80f827f1223261e54bfb7371ee94cdd0";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
@@ -56,7 +58,34 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-search("Orlando");
+function showCelciusTemp(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = document.querySelector("#temperature");
+  fahrenheitLink.classList.remove("active");
+  celciusLink.classList.add("active");
+  let celciusTemperature = Math.round(
+    ((fahrenheitTemperature.innerHTML - 32) * 5) / 9
+  );
+  fahrenheitTemperature.innerHTML = celciusTemperature;
+}
+
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let celciusTemperature = document.querySelector("#temperature");
+  fahrenheitLink.classList.add("active");
+  celciusLink.classList.remove("active");
+  celciusTemperature.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let fahrenheitTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", showCelciusTemp);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+search("Orlando");
